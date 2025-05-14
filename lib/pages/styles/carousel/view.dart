@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 
 import 'index.dart';
 
-class CarouselPage extends GetView<CarouselController> {
+class CarouselPage extends GetView<DHCarouselController> {
   const CarouselPage({Key? key}) : super(key: key);
 
   Widget _buildView() {
     return <Widget>[
       // 首页滚动图
-      GetBuilder<CarouselController>(
+      GetBuilder<DHCarouselController>(
               init: controller,
               id: "carousel_home",
               builder: (_controller) {
@@ -26,7 +26,7 @@ class CarouselPage extends GetView<CarouselController> {
           .paddingBottom(AppSpace.listRow),
 
       // 产品页滚动图
-      GetBuilder<CarouselController>(
+      GetBuilder<DHCarouselController>(
               init: controller,
               id: "carousel_prod",
               builder: (_controller) {
@@ -46,8 +46,8 @@ class CarouselPage extends GetView<CarouselController> {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CarouselController>(
-      init: CarouselController(),
+    return GetBuilder<DHCarouselController>(
+      init: DHCarouselController(),
       id: "carousel",
       builder: (_) {
         return Scaffold(

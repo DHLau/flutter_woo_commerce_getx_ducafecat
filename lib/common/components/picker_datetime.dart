@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_picker/Picker.dart';
+import 'package:flutter_picker_plus/picker.dart';
 import 'package:flutter_woo_commerce_getx_ducafecat/common/index.dart';
 import 'package:get/get.dart';
 

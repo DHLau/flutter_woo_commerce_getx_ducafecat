@@ -1,8 +1,8 @@
 import 'package:flutter_woo_commerce_getx_ducafecat/common/index.dart';
 import 'package:get/get.dart';
 
-class CarouselController extends GetxController {
-  CarouselController();
+class DHCarouselController extends GetxController {
+  DHCarouselController();
 
   List<KeyValueModel> imagesList = [
     KeyValueModel(

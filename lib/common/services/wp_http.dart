@@ -22,8 +22,8 @@ class WPHttpService extends GetxService {
 
     var options = BaseOptions(
       baseUrl: Constants.wpApiBaseUrl,
-      connectTimeout: 10000, // 10秒
-      receiveTimeout: 5000, // 5秒
+      connectTimeout: Duration(milliseconds: 10000), // 10秒
+      receiveTimeout: Duration(milliseconds: 5000), // 5秒
       headers: {},
       contentType: 'application/json; charset=utf-8',
       responseType: ResponseType.json,
@@ -127,10 +127,10 @@ class RequestInterceptors extends Interceptor {
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     if (response.statusCode != 200) {
       handler.reject(
-        DioError(
+        DioException(
           requestOptions: response.requestOptions,
           response: response,
-          type: DioErrorType.response,
+          type: DioExceptionType.badResponse,
         ),
         true,
       );
@@ -143,16 +143,15 @@ class RequestInterceptors extends Interceptor {
   }
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     if (kDebugMode) {
       print('http error type -----------');
       print(err.response);
       print('http error type -----------');
     }
 
-    final exception = HttpException(err.message);
     switch (err.type) {
-      case DioErrorType.response: // 服务端自定义错误体处理
+      case DioExceptionType.badResponse: // 服务端自定义错误体处理
         final response = err.response;
         WpRes res = WpRes.fromJson(response?.data);
         Loading.error(res.message ?? 'Unknown error');
@@ -162,19 +161,18 @@ class RequestInterceptors extends Interceptor {
             break;
         }
         break;
-      case DioErrorType.other:
+      case DioExceptionType.connectionError:
         Loading.error('Network connection failed');
         break;
-      case DioErrorType.cancel:
+      case DioExceptionType.cancel:
         break;
-      case DioErrorType.connectTimeout:
+      case DioExceptionType.connectionTimeout:
         Loading.error('Network request timed out');
         break;
       default:
         Loading.error('Unknown error');
         break;
     }
-    err.error = exception;
     handler.next(err);
     // super.onError(err, handler);
     // 如果你想完成请求并返回一些自定义数据，可以resolve 一个`Response`,如`handler.resolve(response)`。

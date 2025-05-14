@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_picker/Picker.dart';
+import 'package:flutter_picker_plus/picker.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 import 'package:wechat_camera_picker/wechat_camera_picker.dart';
 
@@ -41,22 +41,21 @@ class ActionPicker {
     }
     var result = await AssetPicker.pickAssets(
       context,
-      selectedAssets: selected,
-      requestType: type,
-      maxAssets: maxAssets,
-      themeColor: AppColors.surfaceVariant,
-      specialPickerType: specialPickerType,
-      filterOptions: FilterOptionGroup(
-        orders: [const OrderOption(type: OrderOptionType.createDate)],
-        videoOption: const FilterOption(
-          durationConstraint: DurationConstraint(
-            min: Duration(seconds: videoDurationMin),
-            max: Duration(seconds: videoDurationMax),
-          ),
-        ),
-      ),
-      specialItemPosition: specialItemPosition,
-      specialItemBuilder: specialItemBuilder,
+      pickerConfig: AssetPickerConfig(
+          selectedAssets: selected,
+          requestType: type,
+          maxAssets: maxAssets,
+          themeColor: AppColors.surfaceVariant,
+          specialPickerType: specialPickerType,
+          filterOptions: FilterOptionGroup(
+            orders: [const OrderOption(type: OrderOptionType.createDate)],
+            videoOption: const FilterOption(
+              durationConstraint: DurationConstraint(
+                min: Duration(seconds: videoDurationMin),
+                max: Duration(seconds: videoDurationMax),
+              ),
+            ),
+          )),
     );
     return result;
   }
@@ -84,15 +83,21 @@ class ActionPicker {
       );
       return null;
     }
-    var result = await CameraPicker.pickFromCamera(
-      context,
-      enableRecording: enableRecording,
-      enableAudio: enableRecording,
-      textDelegate: enableRecording
-          ? EnglishCameraPickerTextDelegateWithRecording()
-          : EnglishCameraPickerTextDelegate(),
-      resolutionPreset: ResolutionPreset.veryHigh,
-    );
+    // var result = await CameraPicker.pickFromCamera(
+    //   context,
+    //   enableRecording: enableRecording,
+    //   enableAudio: enableRecording,
+    //   textDelegate: enableRecording
+    //       ? EnglishCameraPickerTextDelegateWithRecording()
+    //       : EnglishCameraPickerTextDelegate(),
+    //   resolutionPreset: ResolutionPreset.veryHigh,
+    // );
+    var result = await CameraPicker.pickFromCamera(context,
+        pickerConfig: CameraPickerConfig(
+          enableRecording: enableRecording,
+          enableAudio: enableRecording,
+          textDelegate: EnglishCameraPickerTextDelegate(),
+        ));
     return result;
   }
 

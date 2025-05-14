@@ -28,71 +28,75 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   # 滑块选择
-  another_xlider: ^1.0.0
+  another_xlider: ^3.0.2
   # 缓存网络图片
-  cached_network_image: ^3.1.0
+  cached_network_image: ^3.4.1
   # 滑块
-  carousel_slider: ^4.0.0
-  cookie_jar: ^3.0.1
+  carousel_slider: ^5.0.0
+  cookie_jar: ^4.0.8
   # 国家、城市
-  country_code_picker: ^2.0.2
+  country_code_picker: ^3.3.0
   # 加密安全 SHA
-  crypto: ^3.0.1
+  crypto: ^3.0.6
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   # 设备信息
-  device_info: ^2.0.2
+  device_info: ^2.0.3
   # http
-  dio: ^4.0.0
-  dio_cookie_manager: ^2.0.0
+  dio: ^5.8.0+1
+  dio_cookie_manager: ^3.2.0
   # 下拉菜单按钮
-  dropdown_button2: ^1.1.1
+  dropdown_button2: ^2.3.9
   flutter:
     sdk: flutter
   # 缓存管理
-  flutter_cache_manager: ^3.1.2
+  flutter_cache_manager: ^3.4.1
   # easyloading
-  flutter_easyloading: ^3.0.3
+  flutter_easyloading: ^3.0.5
   flutter_localizations:
     sdk: flutter
   # 格式化显示
-  flutter_multi_formatter: ^2.5.1
+  flutter_multi_formatter: ^2.13.7
   # 选择
-  flutter_picker: ^2.0.2
+  flutter_picker_plus: ^1.5.1
   # 屏幕适配
-  flutter_screenutil: ^5.0.0+2
+  flutter_screenutil: ^5.9.3
   # svg
-  flutter_svg: ^1.0.3
+  flutter_svg: ^2.1.0
+  # 包信息
+  package_info_plus: ^8.3.0
+  collection: ^1.17.2
+  win32: ^5.0.0
 
   # GetX
-  get: ^4.6.1
+  get: ^4.7.2
   # 日期
-  intl: ^0.17.0
+  intl: ^0.19.0
   # 底部弹出框
-  modal_bottom_sheet: ^2.0.0
+  modal_bottom_sheet: ^3.0.0
   # 包信息
   package_info: ^2.0.2
   # permission 权限
-  permission_handler: ^9.2.0
+  permission_handler: ^12.0.0+1
   # 图片预览
-  photo_view: ^0.13.0
+  photo_view: ^0.15.0
   # Pin 输入框
-  pinput: ^2.0.2
+  pinput: ^5.0.1
   # 下拉刷新
   pull_to_refresh: ^2.0.0
   # 错误收集
-  sentry: ^6.0.1
+  sentry: ^8.14.2
   # 分享
   share: ^2.0.4
   # 本地存储
-  shared_preferences: ^2.0.8
+  shared_preferences: ^2.5.3
   # 表单验证
-  validatorless: ^1.2.1
+  validatorless: ^1.2.4
   # 媒体选择
-  wechat_assets_picker: ^6.3.1
-  wechat_camera_picker: ^2.6.5
+  wechat_assets_picker: ^9.5.0
+  wechat_camera_picker: ^4.3.7
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to

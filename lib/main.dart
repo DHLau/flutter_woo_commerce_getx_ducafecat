@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(414, 896), // 设计稿尺寸
-      builder: () => RefreshConfiguration(
+      builder: (context, child) => RefreshConfiguration(
         headerBuilder: () => const ClassicHeader(),
         footerBuilder: () => const ClassicFooter(),
         hideFooterWhenNotFull: true,
